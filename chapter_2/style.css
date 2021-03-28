@@ -1,0 +1,46 @@
+/* Use Rems for setting font-size, pixel for borders and ems for other properties */
+/* Ems: when used on font-size of a tag/element, is calculated in px by multiplying the value with inherited font-size */
+/* Ems: when used on properties (other than font-size) on a tag/element, is calculated in px by multiplying the value with element's font-size */
+/* Rems: calculated with respect to root-element's font-size */
+:root {
+    font-size: calc(0.5em + 1vw);
+}
+
+/* @media rule: specifies styles which can be applied only to certain screen-sizes or screen-media-types (print or screen) */
+/* @media (min-width: 800px) {
+    :root {
+        font-size: 0.875em;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        font-size: 1em;
+    }
+} */
+
+.panel {
+    font-size: 1rem;
+    padding: 1em;
+    border-radius: 0.5em;
+    border: 1px solid #999;
+}
+
+/*Changing font-size of this property proportionately increases all children font-sizes */
+.panel.large {
+    font-size: 1.2rem;
+}
+
+.panel > h2 {
+    margin-top: 0;
+    font-size:0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Viewport: framed area in the browser window excluding browser's address-bar,
+toolbars and status-bar where the web-page is visible
+vh: 1/100th of viewport height
+vw: 1/100th of viewport width
+vmin: vw or vh (whichever is smaller)
+vmax: vw or vh (whichever is larger)*/
