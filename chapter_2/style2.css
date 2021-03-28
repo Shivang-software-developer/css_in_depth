@@ -1,0 +1,14 @@
+/*  Css variables are used. They start with two dashes (to differentiate from css properties) followed by variable-name. Variable has
+to be declared inside a declaration-block. */
+
+/* in order to use a variable, a css-function called 'var' need to be utilized*/
+/* var function accepts second argument 'fallback-value'. This argument is used if the first argument (aka value of the property is not defined).*/
+:root {
+    --main-font: Helvetica, Arial, sans-serif; 
+    --brand-color: #369;
+}
+
+p {
+    font-family: var(--main-font);
+    color: var(--brand-color);
+}

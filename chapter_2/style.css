@@ -3,7 +3,8 @@
 /* Ems: when used on properties (other than font-size) on a tag/element, is calculated in px by multiplying the value with element's font-size */
 /* Rems: calculated with respect to root-element's font-size */
 :root {
-    font-size: calc(0.5em + 1vw);
+    font-size: 1em;
+    line-height: 1.2em;
 }
 
 /* @media rule: specifies styles which can be applied only to certain screen-sizes or screen-media-types (print or screen) */
@@ -44,3 +45,13 @@ vh: 1/100th of viewport height
 vw: 1/100th of viewport width
 vmin: vw or vh (whichever is smaller)
 vmax: vw or vh (whichever is larger)*/
+
+
+/* line-height: accepts unitless as well as unit values. It's value is inherited (like 'font-size')*/
+/* When used unitless, it computes values of the line-height of every child element relative to element's font-size
+when used with a unit, when a element is defined using a length (px, em, rem and so forth), its computed value is inherited by child elements */
+.about-us {
+    font-size: 2em;
+}
+
+/* Custom properties */
