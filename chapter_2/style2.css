@@ -3,12 +3,27 @@ to be declared inside a declaration-block. */
 
 /* in order to use a variable, a css-function called 'var' need to be utilized*/
 /* var function accepts second argument 'fallback-value'. This argument is used if the first argument (aka value of the property is not defined).*/
+
+/* INTERESTING FACT: CUSTOM PROPERTIES CASCADE AND INHERIT */
 :root {
     --main-font: Helvetica, Arial, sans-serif; 
     --brand-color: #369;
+    --main-bg: #fff;
+    --main-color: #000;
 }
 
-p {
-    font-family: var(--main-font);
-    color: var(--brand-color);
+.panel {
+    font-size: 1rem;
+    padding: 1em;
+    border: 1px solid #999;
+    border-radius: 0.5em;
+    background-color: var(--main-bg);
+    color: var(--main-color);
+}
+
+.panel > h2 {
+    margin-top: 0;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
 }
