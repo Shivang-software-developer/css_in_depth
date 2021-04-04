@@ -1,0 +1,36 @@
+/* Applies to all elements (including psuedo elements) */
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+    color: #fff;
+    background-color: #0072b0;
+    border-radius: .5em;
+}
+
+main {
+    display: block; /* IE shows main element inline by default */
+}
+
+.main {
+    float: left;
+    width: 70%;
+    background-color: #fff;
+    border-radius: .5em;
+}
+
+.sidebar {
+    float: left;
+    width: 30%; /*TBR: add space on either side of (+,-,*,%) operator*/
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+}
