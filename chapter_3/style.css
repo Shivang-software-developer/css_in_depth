@@ -1,19 +1,67 @@
 /* Applies to all elements (including psuedo elements) */
+/* overflow: allows to control exact behavior of the overflowing content. visible(all content is visible, even if it overflows the container's edges). hidden (content that overflows the container's padding edge is clipped and won't be visible). scroll (scrollbars are visible yet disabled; even if full content is visible). auto (scrollbars are added if needed) */
+
+/* Horizontal overflow: happens if the content is unbreakable (not having hypen, spaces(tabs, linefeed, return..etc)) */
+
+/* Equal height columns? try using vh (use 100vh if you want an element take full container's height) */
+/* How big both columns should be? If heights of both columns is too big, they will have big white gaps. Too small and you have to deal with content-overflow */
+
+/* Min-height/Max-height min-width/max-width */
+
+/* vertical-align- affects only inline and table-cell elements */
+
+/* Vertical alignment - instead of fixing height of a container and then attempting to center a dynamically sized piece of content inside it, why not add equal padding and let browser handle centering problem */
+
+/* Negative margin- when used with with margin-left and margin-top properties pull the element (on which the property is applied) leftward or upward. Whereas, negative right and bottom margin will pull the succeding element(s) leftward or upward (to overlap) */
+
+/* when no width is applied  (on element having negative margins on left and right. The element streched like a padding) */
+
+/* Collapse margins: happens when element (top/bottom or bothmargin) is placed before/after adjacent element having (top/bottom or both margin). size of collapsed margin is equal to the largest of the joined margins.collapsed margin occurs with top and bottom margins. Left/right margins do not collapse. MARGINS OF FLEXBOX ITEMS DO NOT COLLAPSE */
+
+/* root is the psuedo class element targeting "html" tag */
+:root {
+    box-sizing: border-box;
+}
+
 *,
 ::before,
 ::after {
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
+/* Following and previous ruleset let third-party-component-css-rule to have different css-prop-value inherited all descendants */
+/* :third_party_component_css_rules_targeting_parent_container {
+    box-sizing: content-box;
+} */
 
 body {
     background-color: #eee;
     font-family: Helvetica, Arial, sans-serif;
 }
 
+/* lobotomized owl selector - selects all children elements (if any) of parent which are followed first child. */
+body * + * {
+    margin-top: 1.5em;
+}
+
 header {
     color: #fff;
     background-color: #0072b0;
     border-radius: .5em;
+    padding: 1em 0.5em;
+}
+
+/* with display: "table" and it's children elements having display: "table-cell" will let grow both columns as high as content of the most column. */
+.container {
+    display: flex; /* by default (when no explicit width is set, element won't expand to a 100% width) */
+    /* width: 100%; */
+    /*border-spacing: 1.5em 0; */ /* defines space between cells of a table. First for horizontal spacing and second for vertical */
+    /* apart from defining spaces for adjacent table-cells, it is also applied along outside-edges of the table. distance between table's border and the nearest column/row cell will be summation of relevant padding and border-spacing */
+}
+
+/* Use this rule with "border-spacing" property (on container) to have container aligned with header. No idea about why you need a wrapper element for negative margins when the same can be applied to container.*/
+.wrapper {
+    margin-left: -1.5em;
+    margin-right: -1.5em;
 }
 
 main {
@@ -21,16 +69,39 @@ main {
 }
 
 .main {
-    float: left;
+    /* float: left; */
+    /* display: table-cell; */
     width: 70%;
+    padding: 1em 0.5em;
     background-color: #fff;
     border-radius: .5em;
 }
 
 .sidebar {
-    float: left;
-    width: 30%; /*TBR: add space on either side of (+,-,*,%) operator*/
+    /* float: left; */
+    /* display: table-cell; */
+    width: 30%; /* or margin-left: calc(30% - 1.5em)*/    /*TBR: add space on either side of (+,-,*,%) operator*/
+    margin-left: 1.5em; /* or margin-left: 1.5em */ /* cannot be applied to elements with display: table-cell */
+    margin-top: 0; /* because lobotomized-owl selector used*/
     padding: 1.5em;
     background-color: #fff;
     border-radius: .5em;
 }
+
+.button-link {
+    display: block;
+    padding: 0.5em;
+    color: #fff;
+    background-color: #0090c9;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.sponsor-link {
+    display:block;
+    color: #0072b0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
